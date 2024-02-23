@@ -1,0 +1,33 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+    <h1> books index </h1>
+    <div class="d-flex flex-row gap-3 flex-wrap">
+
+        {% for bk in books %}
+    
+          <div class="card" style="width: 18rem;">
+            <img width="200" height="200"
+                    src="{{url_for('static', filename='bookImages/'+bk.image)}}"
+                    class="card-img-top" alt="...">
+    
+            <div class="card-body">
+              <h5 class="card-title">{{bk.name}}</h5>
+              <h5><span style="color: blueviolet;">Title: </span>{{bk.title}}</h5>
+              <h5><span style="color: blueviolet;">Price: </span>{{bk.price}}</h5>
+              <h5><span style="color: blueviolet;">Number Of Pages: </span>{{bk.no_of_pages}}</h5>
+              <h5><span style="color: blueviolet;">Created At: </span>{{bk.created_at}}</h5>
+              <h5><span style="color: blueviolet;">Updated At: </span>{{bk.updated_at}}</h5>
+              
+              
+              <a href="{{url_for('books.show',id=bk.id)}}" class="btn btn-dark">Show</a>
+              <a href="{{url_for('books.delete',id=bk.id)}}" method="POST" class="btn btn-dark">Delete</a>
+              <a href="{{url_for('books.edit',id=bk.id)}}" class="btn btn-dark">Edit</a>
+
+              
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+<h1> books Details </h1>
+    <div class="card" style="width: 18rem;">
+        <img width="200" height="200" src="{{url_for('static', filename='bookImages/'+books.image)}}"
+            class="card-img-top" alt="...">
+
+        <div class="card-body">
+            <h5 class="card-title">{{books.name}}</h5>
+            <h5><span style="color: blueviolet;">Title: </span>{{books.title}}</h5>
+            <h5><span style="color: blueviolet;">Price: </span>{{books.price}}</h5>
+            <h5><span style="color: blueviolet;">Number Of Pages: </span>{{books.no_of_pages}}</h5>
+            <h5><span style="color: blueviolet;">Created At: </span>{{books.created_at}}</h5>
+            <h5><span style="color: blueviolet;">Updated At: </span>{{books.updated_at}}</h5>
+            <a href="{{url_for('books.index')}}" class="btn btn-dark">Back</a>
+        </div>
+    </div>
+
+{% endblock %}
